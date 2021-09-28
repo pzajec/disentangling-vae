@@ -394,7 +394,7 @@ class Shavers(datasets.ImageFolder):
     root : string
         Root directory of dataset.
     """
-    files = {"train": "good"}
+    #files = {"train": "good"}
     img_size = (1, 64, 64)
     background_color = COLOUR_BLACK
 
