@@ -16,13 +16,15 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms, datasets
 
 DIR = os.path.abspath(os.path.dirname(__file__))
+print("DIR: ", DIR)
 COLOUR_BLACK = 0
 COLOUR_WHITE = 1
 DATASETS_DICT = {"mnist": "MNIST",
                  "fashion": "FashionMNIST",
                  "dsprites": "DSprites",
                  "celeba": "CelebA",
-                 "chairs": "Chairs"}
+                 "chairs": "Chairs",
+                 "shavers": "Shavers"}
 DATASETS = list(DATASETS_DICT.keys())
 
 
@@ -381,6 +383,26 @@ class FashionMNIST(datasets.FashionMNIST):
                              transforms.ToTensor()
                          ]))
 
+class Shavers(datasets.ImageFolder):
+    """Philips Dataset of good shaver prints.
+
+    Notes
+    -----
+    
+    Parameters
+    ----------
+    root : string
+        Root directory of dataset.
+    """
+    files = {"train": "good"}
+    img_size = (1, 64, 64)
+    background_color = COLOUR_BLACK
+
+    def __init__(self, root=os.path.join(DIR, '../data/shavers'), **kwargs):
+        self.root = root
+        self.transforms = transforms.Compose([transforms.Grayscale(),
+                                              transforms.ToTensor()])
+        super().__init__(root, transform=self.transforms)
 
 # HELPERS
 def preprocess(root, size=(64, 64), img_format='JPEG', center_crop=None):
