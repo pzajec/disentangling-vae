@@ -401,7 +401,8 @@ class Shavers(datasets.ImageFolder):
     def __init__(self, root=os.path.join(DIR, '../data/shavers'), **kwargs):
         self.root = root
         self.transforms = transforms.Compose([transforms.Grayscale(),
-                                              transforms.ToTensor()])
+                                              transforms.ToTensor(),
+                                              transform.Resize(64)])
         super().__init__(root, transform=self.transforms)
 
 # HELPERS
