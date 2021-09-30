@@ -402,7 +402,7 @@ class Shavers(datasets.ImageFolder):
         self.root = root
         self.transforms = transforms.Compose([transforms.Grayscale(),
                                               transforms.ToTensor(),
-                                              transforms.Resize(64)])
+                                              transforms.Resize(64, 64)])
         super().__init__(root, transform=self.transforms)
 
 # HELPERS
