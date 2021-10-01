@@ -411,15 +411,15 @@ class Shavers(datasets.ImageFolder):
         super().__init__(root, transform=self.transforms)
 
 class ShaversGood(Shavers):
-    def __init__(self, root=os.path.join(DIR, '../data/shavers/good/'), **kwargs):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers-good/'), **kwargs):
         super().__init__(root=root)
 
 class ShaversDouble(Shavers):
-    def __init__(self, root=os.path.join(DIR, '../data/shavers/double/'), **kwargs):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers-double/'), **kwargs):
         super().__init__(root=root)
 
 class ShaversBroken(Shavers):
-    def __init__(self, root=os.path.join(DIR, '../data/shavers/broken/'), **kwargs):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers-broken/'), **kwargs):
         super().__init__(root=root)
 
 
