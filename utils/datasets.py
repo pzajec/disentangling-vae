@@ -405,6 +405,19 @@ class Shavers(datasets.ImageFolder):
                                             transforms.Resize(size=(64, 64))])
         super().__init__(root, transform=self.transforms)
 
+class ShaversGood(Shavers):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers/good/'), **kwargs):
+        super().__init__(root, transform=self.transforms)
+
+class ShaversDouble(Shavers):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers/double/'), **kwargs):
+        super().__init__(root, transform=self.transforms)
+
+class ShaversBroken(Shavers):
+    def __init__(self, root=os.path.join(DIR, '../data/shavers/broken/'), **kwargs):
+        super().__init__(root, transform=self.transforms)
+
+
 # HELPERS
 def preprocess(root, size=(64, 64), img_format='JPEG', center_crop=None):
     """Preprocess a folder of images.
